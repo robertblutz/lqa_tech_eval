@@ -1,11 +1,9 @@
-import { expect, type Page } from '@playwright/test';
-import { testEnv } from './env';
+import type { Page } from '@playwright/test';
+import { ProjectBoardPage } from '../pages/project-board-page';
 
-export async function login(page: Page): Promise<void> {
-  await page.goto(testEnv.baseUrl);
-  await page.locator('#username').fill(testEnv.username);
-  await page.locator('#password').fill(testEnv.password);
-  await page.getByRole('button', { name: 'Sign in' }).click();
+export async function login(page: Page): Promise<ProjectBoardPage> {
+  const projectBoardPage = new ProjectBoardPage(page);
+  await projectBoardPage.login();
 
-  await expect(page.getByRole('button', { name: 'Logout' })).toBeVisible();
+  return projectBoardPage;
 }
