@@ -1,0 +1,43 @@
+[
+  {
+    "name": "web application to do item shows feature and high priority tags",
+    "projectName": "Web Application",
+    "columnName": "To Do",
+    "cardTitle": "Implement User Authentication",
+    "expectedTags": ["Feature", "High Priority"]
+  },
+  {
+    "name": "web application to do contains fix navigation bug card",
+    "projectName": "Web Application",
+    "columnName": "To Do",
+    "cardTitle": "Fix navigation bug"
+  },
+  {
+    "name": "web application in progress design system updates card has design tag",
+    "projectName": "Web Application",
+    "columnName": "In Progress",
+    "cardTitle": "Design System Updates",
+    "expectedTags": ["Design"]
+  },
+  {
+    "name": "mobile application to do push notification system card has feature tag",
+    "projectName": "Mobile Application",
+    "columnName": "To Do",
+    "cardTitle": "Push notification system",
+    "expectedTags": ["Feature"]
+  },
+  {
+    "name": "mobile application in progress offline mode card has feature and high priority tags",
+    "projectName": "Mobile Application",
+    "columnName": "In Progress",
+    "cardTitle": "Offline mode",
+    "expectedTags": ["Feature", "High Priority"]
+  },
+  {
+    "name": "mobile application done app icon design card has design tag",
+    "projectName": "Mobile Application",
+    "columnName": "Done",
+    "cardTitle": "App icon design",
+    "expectedTags": ["Design"]
+  }
+]
