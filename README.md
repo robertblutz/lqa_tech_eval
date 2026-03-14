@@ -35,22 +35,23 @@ This is the human version of the steps and thought process used to create the te
 
 10) Now that we have a pretty good idea that this should work as expected, we can add the rest of the test cases in one prompt.
     * **Prompt:**
-  ````
+      ````
         That works as expected.  Now we need four more test cases:
         * Verify that there is a "Fix navigation bug" card in the To Do section of the Web Application project (no need to verify tags)
         * In the "Mobile Application" project, look for a "Push notification system" card with the "Feature" tag.
         * Also in the "Mobile Application" project, look for a "Offline mode" card with "Feature" and "High Priority" tags.
         * Finally, still in Mobile Application, verify that the "App icon design" card has the "Design" tag.
-````
+      ````
+
     *  This created the four remaining tests, which are similar to the existing ones.
 
-11) The smoke.spec.ts and login.spec.ts tests are extraneous at this point, so I removed them (no prompt, `git rm` doesn't need any tokens to run.)
+12) The smoke.spec.ts and login.spec.ts tests are extraneous at this point, so I removed them (no prompt, `git rm` doesn't need any tokens to run.)
 
-12) Now that we have the structure in place and know the tests are working as expected, the next step is to put this into a data-driven form that can be controlled by a JSON file.  
+13) Now that we have the structure in place and know the tests are working as expected, the next step is to put this into a data-driven form that can be controlled by a JSON file.  
     * **Prompt**:  `I've done some test cleanup, and now we are down to the six requested tests.  The structures of these tests are very similar to each other, so it should be possible to make this test data-driven.  Create a data structure that contains the parameters used by the expectCardPresent and getCardTags functions which will allow these to be stored in a JSON file.`
     * This removed the individual tests, and replaced them all with a single 'card-checks.spec.ts' file that takes inputs from a 'tests/data/card-checks.json' file.  
 
-13) At this point, adding checks for more cards/tags should only require editing the JSON file.  
+14) At this point, adding checks for more cards/tags should only require editing the JSON file.  
     
 # Potential Issues and Next Steps:
 * In doing some testing with various values, I found that assertions for card titles do not appear to be case sensitive, but assertions for tags will break if there is not an exact match.  If you need this check to be case insensitive the easiest way to do this would be to cast the array values to lower case.  
