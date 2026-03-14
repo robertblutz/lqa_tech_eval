@@ -40,6 +40,16 @@ export class ProjectBoardPage {
     await expect(card.getByRole('heading', { name: this.exactTitlePattern(cardTitle) })).toBeVisible();
   }
 
+  async expectCardNotPresent(projectName: string, columnName: string, cardTitle: string): Promise<void> {
+    await this.selectProject(projectName);
+
+    const card = this.columnByHeading(columnName).locator('div.bg-white').filter({
+      has: this.page.getByRole('heading', { name: this.exactTitlePattern(cardTitle) })
+    });
+
+    await expect(card).toHaveCount(0);
+  }
+
   async getCardTags(projectName: string, columnName: string, cardTitle: string): Promise<string[]> {
     const card = await this.card(projectName, columnName, cardTitle);
     const tagLocator = card.locator('div.flex.flex-wrap.gap-2.mb-3 span');
